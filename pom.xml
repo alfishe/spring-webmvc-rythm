@@ -52,14 +52,15 @@
         <java.version>1.6</java.version>
 
         <dependency.servlet-api.version>2.5</dependency.servlet-api.version>
-        <dependency.spring.version>3.1.0.RELEASE</dependency.spring.version>
-        <dependency.rythm.version>1.0-b9</dependency.rythm.version>
+        <dependency.spring.version>4.0.5.RELEASE</dependency.spring.version>
+        <dependency.springsecurity.version>3.2.4.RELEASE</dependency.springsecurity.version>
+        <dependency.rythm.version>1.1-SNAPSHOT</dependency.rythm.version>
         <dependency.slf4j-api.version>1.6.6</dependency.slf4j-api.version>
         <dependency.slf4j-impl.version>1.6.6</dependency.slf4j-impl.version>
         <dependency.commons-lang3.version>3.1</dependency.commons-lang3.version>
         <dependency.hibernate-validator.version>4.3.1.Final</dependency.hibernate-validator.version>
 
-        <dependency.junit.version>4.10</dependency.junit.version>
+        <dependency.junit.version>4.11</dependency.junit.version>
         <dependency.logback.version>1.0.6</dependency.logback.version>
 
         <plugin.maven-compiler.version>2.3.2</plugin.maven-compiler.version>
@@ -102,17 +103,23 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.rythmengine</groupId>
+            <artifactId>rythm-engine</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/rythm-engine-1.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>${dependency.servlet-api.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${dependency.spring.version}</version>
-            <scope>provided</scope>
+            <version>${dependency.springsecurity.version}</version>
         </dependency>
 
         <dependency>
@@ -156,12 +163,6 @@
             <version>${dependency.spring.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.rythmengine</groupId>
-            <artifactId>rythm-engine</artifactId>
-            <version>${dependency.rythm.version}</version>
-        </dependency>
         
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -204,14 +205,14 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${dependency.spring.version}</version>
+            <version>${dependency.springsecurity.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${dependency.spring.version}</version>
+            <version>${dependency.springsecurity.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -232,6 +233,30 @@
 
     <build>
         <plugins>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.1</version>
+                <executions>
+                    <execution>
+                        <id>hack-binary</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <file>${basedir}/lib/rythm-engine-1.1-SNAPSHOT.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>org.rythmengine</groupId>
+                            <artifactId>rythm-engine</artifactId>
+                            <version>1.1-SNAPSHOT</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -250,6 +275,49 @@
                 <configuration>
                     <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
