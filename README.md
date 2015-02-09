@@ -13,10 +13,10 @@ Demo Project: [https://github.com/lawrence0819/spring-webmvc-rythm-demo] (https:
 
 ## Dependencies:
 
-* Rythm 1.0-b9 or above
-* Servlet 2.5 or above
-* Spring web-mvc 3.1.0 or above
-* Slf4j 1.6.6 or above
+* Rythm 1.0 or above
+* Servlet 3.0.1 or above
+* Spring web-mvc 4.1.4 or above
+* Slf4j 1.7.10 or above
 
 ## Integrate with Spring Web
 
@@ -29,13 +29,6 @@ Demo Project: [https://github.com/lawrence0819/spring-webmvc-rythm-demo] (https:
     <version>1.4.0</version>
 </dependency>
 ```
-
-### Java Project:
-
-1. Download latest release: <http://search.maven.org/remotecontent?filepath=com/ctlok/spring-webmvc-rythm/1.3.6/spring-webmvc-rythm-1.3.6.jar>
-2. Download Spring Framework with web mvc: <http://projects.spring.io/spring-framework/>
-3. Download Slf4j: <http://www.slf4j.org/>
-4. Download logback: <http://logback.qos.ch/download.html>
 
 ### Spring config example
 
