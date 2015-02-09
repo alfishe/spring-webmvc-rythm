@@ -13,7 +13,7 @@ Demo Project: [https://github.com/lawrence0819/spring-webmvc-rythm-demo] (https:
 
 ## Dependencies:
 
-* Rythm 1.0 or above
+* Rythm 1.1 or above (1.1 snapshot with all dependencies embedded included in /lib folder)
 * Servlet 3.0.1 or above
 * Spring web-mvc 4.1.4 or above
 * Slf4j 1.7.10 or above
