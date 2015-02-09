@@ -49,23 +49,23 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <java.version>1.6</java.version>
+        <java.version>1.8</java.version>
 
-        <dependency.servlet-api.version>2.5</dependency.servlet-api.version>
-        <dependency.spring.version>4.0.5.RELEASE</dependency.spring.version>
-        <dependency.springsecurity.version>3.2.4.RELEASE</dependency.springsecurity.version>
+        <dependency.servlet-api.version>3.0.1</dependency.servlet-api.version>
+        <dependency.spring.version>4.1.4.RELEASE</dependency.spring.version>
+        <dependency.springsecurity.version>3.2.5.RELEASE</dependency.springsecurity.version>
         <dependency.rythm.version>1.1-SNAPSHOT</dependency.rythm.version>
-        <dependency.slf4j-api.version>1.6.6</dependency.slf4j-api.version>
-        <dependency.slf4j-impl.version>1.6.6</dependency.slf4j-impl.version>
-        <dependency.commons-lang3.version>3.1</dependency.commons-lang3.version>
-        <dependency.hibernate-validator.version>4.3.1.Final</dependency.hibernate-validator.version>
+        <dependency.slf4j-api.version>1.7.10</dependency.slf4j-api.version>
+        <dependency.slf4j-impl.version>1.7.10</dependency.slf4j-impl.version>
+        <dependency.commons-lang3.version>3.3.2</dependency.commons-lang3.version>
+        <dependency.hibernate-validator.version>5.1.3.Final</dependency.hibernate-validator.version>
 
-        <dependency.junit.version>4.11</dependency.junit.version>
-        <dependency.logback.version>1.0.6</dependency.logback.version>
+        <dependency.junit.version>4.12</dependency.junit.version>
+        <dependency.logback.version>1.1.2</dependency.logback.version>
 
-        <plugin.maven-compiler.version>2.3.2</plugin.maven-compiler.version>
-        <plugin.release.version>2.4.1</plugin.release.version>
-        <plugin.gpg.version>1.4</plugin.gpg.version>
+        <plugin.maven-compiler.version>3.2</plugin.maven-compiler.version>
+        <plugin.release.version>2.5.1</plugin.release.version>
+        <plugin.gpg.version>1.6</plugin.gpg.version>
     </properties>
 
     <profiles>
@@ -105,14 +105,14 @@
         <dependency>
             <groupId>org.rythmengine</groupId>
             <artifactId>rythm-engine</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>$(dependency.rythm.version)</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/rythm-engine-1.1-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <version>${dependency.servlet-api.version}</version>
         </dependency>
 

@@ -25,7 +25,16 @@ public class RythmView extends AbstractTemplateView {
                                              HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         final String templatePath = this.getTemplatePath();
-        response.getWriter().append(Rythm.render(templatePath, model));
+        String render = Rythm.render(templatePath, model);
+        response.getWriter().append(render);
+    }
+
+    @Override
+    public void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response) throws Exception{
+        final String templatePath = this.getTemplatePath();
+        String render = Rythm.render(templatePath, model);
+
+        response.getWriter().append(render);
     }
 
     protected String getTemplatePath() {
