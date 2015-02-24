@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ctlok</groupId>
     <artifactId>spring-webmvc-rythm</artifactId>
-    <version>1.4.3-SNAPSHOT</version>
+    <version>1.4.5-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Rythm Template Engine for Spring</name>
     <description>This is a plugin for Spring to adapt Rythm template engine</description>
@@ -24,15 +24,6 @@
         <tag>HEAD</tag>
     </scm>
 
-    <developers>
-        <developer>
-            <id>lawrence</id>
-            <name>Lawrence Cheung</name>
-            <email>lawrence0819@gmail.com</email>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
-
     <distributionManagement>
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
@@ -52,7 +43,7 @@
         <java.version>1.8</java.version>
 
         <dependency.servlet-api.version>3.0.1</dependency.servlet-api.version>
-        <dependency.spring.version>4.1.4.RELEASE</dependency.spring.version>
+        <dependency.spring.version>4.1.5.RELEASE</dependency.spring.version>
         <dependency.springsecurity.version>3.2.5.RELEASE</dependency.springsecurity.version>
         <dependency.rythm.version>1.1-SNAPSHOT</dependency.rythm.version>
         <dependency.slf4j-api.version>1.7.10</dependency.slf4j-api.version>

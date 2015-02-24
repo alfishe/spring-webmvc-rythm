@@ -72,19 +72,27 @@ public class SpringRythmCache implements ICacheService {
 
     @Override
     public boolean contains(String key) {
-        LOGGER.debug("Is contains cache with key: [{}]", key);
-        return this.get(key) != null;
+        if (LOGGER.isDebugEnabled())
+            LOGGER.debug("Is contains cache with key: [{}]", key);
+
+        boolean result = this.get(key) != null;
+
+        return result;
     }
 
     @Override
     public void setDefaultTTL(int ttl) {
-        LOGGER.debug("Default TTL: [{}]", ttl);
+        if (LOGGER.isDebugEnabled())
+            LOGGER.debug("Default TTL: [{}]", ttl);
+
         this.defaultTtl = ttl;
     }
 
     @Override
     public void clear() {
-        LOGGER.debug("clear cache");
+        if (LOGGER.isDebugEnabled())
+            LOGGER.debug("clear cache");
+
         this.cache.clear();
     }
 
